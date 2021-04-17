@@ -68,16 +68,13 @@ public class AccountController {
         if (!isEmailVaild || !isPSVaild || !isForCheckVaild) {
             model.addAttribute("error", "一文字以上半角英数を使用してください");
             return "createAccount";
-
         }
 
         if (!password.equals(passwordForCheck)) {
             model.addAttribute("error", "パスワードが一致しません");
             return "createAccount";
-
         }
 
-      //遷都して欲しい
       userInfo.setPassword(password);
 
       usersService.registUser(userInfo);

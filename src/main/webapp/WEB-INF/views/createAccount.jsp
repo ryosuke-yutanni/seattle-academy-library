@@ -31,11 +31,11 @@
                         <input type="password" class="input" id="password" name="password" required>
                         <label class="label">パスワード（確認用）</label>
                         <input type="password" class="input" id="passwordForCheck" name="passwordForCheck" required>           
-                       <c:if test="${!empty error}">
+                        <c:if test="${!empty error}">
                 	   		<div class="error">${error}</div>   		
-            		   </c:if>
+            		    </c:if>
                         <input type="submit" class="button primary" value="作成する" >
-                    </form>
+                        </form>
                 </div>
                 <div class="authorization_navi">
                     <label class="authorization_text">すでにアカウントをお持ちですか？</label>
