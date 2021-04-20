@@ -41,8 +41,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(
             @RequestParam("email") String email,
-            @RequestParam("password") String password,
-            Model model) {
+            @RequestParam("password") String password, Model model) {
 
         // TODO 下記のコメントアウトを外してサービスクラスを使用してください。
         UserInfo selectedUserInfo = usersService.selectUserInfo(email, password);
@@ -53,10 +52,8 @@ public class LoginController {
             return "login";
         }
 
-
         // 本の情報を取得して画面側に渡す
         model.addAttribute("bookList", booksService.getBookList());
         return "home";
-
     }
 }

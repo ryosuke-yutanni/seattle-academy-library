@@ -54,5 +54,5 @@ public class UsersService {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
-    }
+        }
 }
