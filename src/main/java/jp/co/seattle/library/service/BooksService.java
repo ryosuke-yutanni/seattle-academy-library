@@ -79,7 +79,6 @@ public class BooksService {
     public void deletingBook(int bookId) {
         String sql = "DELETE from books where id =" + bookId + ";";
         jdbcTemplate.update(sql);
-        // 
     }
 
 }
