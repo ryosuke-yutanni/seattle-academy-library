@@ -34,7 +34,7 @@ public class BooksService {
         // TODO 取得したい情報を取得するようにSQLを修正
         //書籍名、出版社、著者、出版日、サムネイル、id
         List<BookInfo> getedBookList = jdbcTemplate.query(
-                "SELECT id,title,author,publisher,publish_date,thumbnail_url FROM books ORDER BY title asc",
+                "SELECT id,title,author,publisher,publish_date,thumbnail_url,description,isbn FROM books ORDER BY title asc",
                 new BookInfoRowMapper());
 
         return getedBookList;
@@ -57,8 +57,6 @@ public class BooksService {
         return bookDetailsInfo;
     }
 
-
-
     /**
      * 書籍を登録する
      *
@@ -66,10 +64,13 @@ public class BooksService {
      */
     public void registBook(BookDetailsInfo bookInfo) {
 
-        String sql = "INSERT INTO books (title, author,publisher,thumbnail_name,thumbnail_url,reg_date,upd_date) VALUES ('"
+        String sql = "INSERT INTO books (title, author,publisher,thumbnail_name,thumbnail_url,publish_date,description,isbn,reg_date,upd_date) VALUES ('"
                 + bookInfo.getTitle() + "','" + bookInfo.getAuthor() + "','" + bookInfo.getPublisher() + "','"
                 + bookInfo.getThumbnailName() + "','"
-                + bookInfo.getThumbnailUrl() + "',"
+                + bookInfo.getThumbnailUrl() + "','"
+                + bookInfo.getPublishDate() + "','"
+                + bookInfo.getDescription() + "','"
+                + bookInfo.getIsbn() + "',"
                 + "sysdate(),"
                 + "sysdate())";
         jdbcTemplate.update(sql);
@@ -77,7 +78,7 @@ public class BooksService {
 
     //書籍をデータベースから持ってきて削除する
     public void deletingBook(int bookId) {
-        String sql = "DELETE from books where id =" + bookId + ";";
+        String sql = "DELETE from books where id =" + bookId;
         jdbcTemplate.update(sql);
         // 
     }
