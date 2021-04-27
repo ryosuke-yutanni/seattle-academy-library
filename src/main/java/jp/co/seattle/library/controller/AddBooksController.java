@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mysql.jdbc.StringUtils;
+
 import jp.co.seattle.library.dto.BookDetailsInfo;
 import jp.co.seattle.library.service.BooksService;
 import jp.co.seattle.library.service.ThumbnailService;
@@ -96,6 +98,14 @@ public class AddBooksController {
             }
         }
 
+        //必須項目
+        if (StringUtils.isNullOrEmpty(title) || StringUtils.isNullOrEmpty(author)
+                || StringUtils.isNullOrEmpty(publisher)
+                || StringUtils.isNullOrEmpty(publishDate)) {
+            model.addAttribute("error", "必須項目を入力してください");
+            return "addBook";
+        }
+
         try {
             DateFormat df = new SimpleDateFormat("yyyyMMdd");
             df.setLenient(false);
@@ -106,7 +116,6 @@ public class AddBooksController {
         }
         boolean isValidIsbn = isbn.matches("[0-9]{10}|[0-9]{13}");
 
-        //        メールパスワードが確認用どれか一つでも半角英数ではなかった場合
         if (!isValidIsbn) {
             model.addAttribute("error", "ISBNの桁数または半角数字が正しくありません<br>出版日は半角数字のYYYYMMDD形式で入力してください");
             return "addbook";
@@ -117,9 +126,7 @@ public class AddBooksController {
         model.addAttribute("resultMessage", "登録完了");
         model.addAttribute("bookDetailsInfo", bookInfo);
 
-
         //  詳細画面に遷移する
         return "details";
     }
-
 }
