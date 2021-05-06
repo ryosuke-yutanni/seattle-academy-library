@@ -73,6 +73,7 @@
                 </div>
             </div>
         </div>
+       <!--  formだと情報を渡せる -->
         <div class="edtDelBookBtn_box">
             <form method="post" action="rentBook">
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_rentBook">借りる</button>
@@ -80,14 +81,14 @@
             <form method="post" action="returnBook">
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_returnBook">返す</button>
             </form>
-              <form method="post" action="editBook">
+              <form method="post" action="editBook">  <!-- editBooksContlloerに遷都する -->  
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_editBook">編集</button>
             </form>
               <form method="post" action="deleteBook">
                 <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_deleteBook">削除</button>
             </form>            
         </div>
-        </div>
+     
        
     </main>
 </body>

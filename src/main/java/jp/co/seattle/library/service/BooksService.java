@@ -47,13 +47,13 @@ public class BooksService {
      * @return 書籍情報
      */
     public BookDetailsInfo getBookInfo(int bookId) {
-
+        //q49　に　getBookInfo
         // JSPに渡すデータを設定する
         String sql = "SELECT * FROM books where id ="
-                + bookId;
+                + bookId; //引数で指定したIdに対応するもの
 
         BookDetailsInfo bookDetailsInfo = jdbcTemplate.queryForObject(sql, new BookDetailsInfoRowMapper());
-
+        //sqlから持ってきたものをJava利用できるようにする
         return bookDetailsInfo;
     }
 
@@ -76,7 +76,31 @@ public class BooksService {
         jdbcTemplate.update(sql);
     }
 
-    //書籍をデータベースから持ってきて削除する
+    /**
+     * 書籍を編集する
+     *
+     * @param bookInfo 書籍情報
+     */
+    public void editBook(BookDetailsInfo bookInfo) {
+        //文字列をダブル　をシングルにする。自分で打ち込む必要はないものはダブルいらない
+        String sql = "update books set title = ' " + bookInfo.getTitle()
+                + "' , author = ' " + bookInfo.getAuthor()
+                + "',publisher = '" + bookInfo.getPublisher()
+                + "' , thumbnail_name = '" + bookInfo.getThumbnailName()
+                + "' , thumbnail_url ='" + bookInfo.getThumbnailUrl()
+                + "' , publish_date = '" + bookInfo.getPublishDate()
+                + "', description = '" + bookInfo.getDescription()
+                + "' ,isbn ='" + bookInfo.getIsbn()
+                + "',upd_date = sysdate()"
+                + " where id = " + bookInfo.getBookId() + ";";
+        //最後のところは変数を表すため
+        jdbcTemplate.update(sql);
+    }
+
+    /*書籍をデータベースから持ってきて削除する
+    
+     */
+
     public void deletingBook(int bookId) {
         String sql = "DELETE from books where id =" + bookId;
         jdbcTemplate.update(sql);

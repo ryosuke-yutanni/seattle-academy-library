@@ -32,7 +32,7 @@ public class BookDetailsInfo {
 
 
     public BookDetailsInfo() {
-
+        // ＠があることで、セッターとゲッターがいらない
     }
 
     public BookDetailsInfo(int bookId, String title, String author, String publisher, String publishDate,
