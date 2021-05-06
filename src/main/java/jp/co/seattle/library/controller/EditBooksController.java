@@ -36,6 +36,12 @@ public class EditBooksController {
     private ThumbnailService thumbnailService;
 
     //@RequestMappingでつなげる。
+    /**
+     * @param locale  　ロケール情報
+     * @param bookId　編集する本のID
+     * @param model model
+     * @return　遷都先画面
+     */
     @RequestMapping(value = "/editBook", method = RequestMethod.POST) //value＝actionで指定したパラメータ 
     //RequestParamでname属性を取得
     public String login(Locale locale,
@@ -46,11 +52,8 @@ public class EditBooksController {
         return "editBook";
     }
 
-    //booki
-    //    リターンは戻りたい画面
-    //　　元々あった詳細情報を持ってくる
     /**
-     * 書籍情報を登録する
+     * 書籍情報を更新する
      * @param locale ロケール情報
      * @param title 書籍名
      * @param author 著者名
@@ -137,7 +140,6 @@ public class EditBooksController {
         // 書籍情報を編集する
         booksService.editBook(bookInfo);
 
-        model.addAttribute("resultMessage", "編集完了");
         model.addAttribute("bookDetailsInfo", booksService.getBookInfo(bookId));
 
         //  詳細画面に遷移する
