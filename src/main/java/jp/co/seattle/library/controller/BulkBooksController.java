@@ -41,11 +41,25 @@ public class BulkBooksController {
     @Autowired
     private ThumbnailService thumbnailService;
 
+    /**
+     * 入力された値をbulkBookに値を渡す。
+     * 
+     * 
+     */
     @RequestMapping(value = "/bulkBook", method = RequestMethod.GET) //value＝actionで指定したパラメータ
+
     //RequestParamでname属性を取得
     public String login(Model model) {
         return "bulkBook";
     }
+
+    /**
+     * 
+     * 書籍情報を一括登録する。
+     * @param s_file
+     *
+     *
+     */
 
     //ファイルを読み込んだ時の処理（各要素のバリデーションチェック）
     @Transactional
@@ -68,6 +82,7 @@ public class BulkBooksController {
 
             boolean isValid = false; //falseの場合は処理を行わない。
 
+            int count = 0;
             while ((line = buf.readLine()) != null) {
                 String[] bulkbookinfo = line.split(",", -1);//1行目を区切って分けているbulkBookinfo ,を基準に分けている -1で空白を一つの要素とする。
 
@@ -75,45 +90,45 @@ public class BulkBooksController {
                 //70行目にbulkinfo(ストリング型の配列を入れている。)
 
                 //必須項目があるか
-                for (int i = 0; i < lines.size(); i++) {
 
-                    if (StringUtils.isNullOrEmpty(bulkbookinfo[0]) || StringUtils.isNullOrEmpty(bulkbookinfo[1])
-                            || StringUtils.isNullOrEmpty(bulkbookinfo[2])
-                            || StringUtils.isNullOrEmpty(bulkbookinfo[3])) {
+                if (StringUtils.isNullOrEmpty(bulkbookinfo[0]) || StringUtils.isNullOrEmpty(bulkbookinfo[1])
+                        || StringUtils.isNullOrEmpty(bulkbookinfo[2])
+                        || StringUtils.isNullOrEmpty(bulkbookinfo[3])) {
 
-                        error_lines.add((i + 1) + "行目の必須項目を入力してください");
-                        isValid = true; //エラーが起きた際はtrueにしてエラー表示、登録する前に一括登録画面に遷移する。
-                        //バリデーションチェックで不正が起きた場合にエラー処理を行う
-                    }
-
-
-                    //文字数や形式はっているか？（バリデーションチェック）
-                    //ISBN　if文を使用
-
-                    boolean isValidIsbn = bulkbookinfo[4].matches("[0-9]{10}|[0-9]{13}");
-
-                    if (!isValidIsbn) {
-                        error_lines.add((i + 1) + "行目のISBNの桁数または半角数字が正しくありません");
-                        isValid = true;
-                    }
-                    //文字数や形式はっているか？（バリデーションチェック）
-                    //出版日　try catchを使用
-
-                    try {
-                        DateFormat df = new SimpleDateFormat("yyyyMMdd");
-                        df.setLenient(false);
-                        df.parse(bulkbookinfo[3]);
-                    } catch (ParseException p) {
-
-                        error_lines.add((i + 1) + "行目の出版日は半角数字のYYYYMMDD形式で入力してください");
-                        isValid = true;
-                    }
+                    error_lines.add((count + 1) + "行目の必須項目を入力してください");
+                    isValid = true; //エラーが起きた際はtrueにしてエラー表示、登録する前に一括登録画面に遷移する。
+                    //バリデーションチェックで不正が起きた場合にエラー処理を行う
                 }
+
+
+                //文字数や形式はっているか？（バリデーションチェック）
+                //ISBN　if文を使用
+
+                boolean isValidIsbn = bulkbookinfo[4].matches("[0-9]{10}|[0-9]{13}");
+
+                if (!isValidIsbn) {
+                    error_lines.add((count + 1) + "行目のISBNの桁数または半角数字が正しくありません");
+                    isValid = true;
+                }
+                //文字数や形式はっているか？（バリデーションチェック）
+                //出版日　try catchを使用
+
+                try {
+                    DateFormat df = new SimpleDateFormat("yyyyMMdd");
+                    df.setLenient(false);
+                    df.parse(bulkbookinfo[3]);
+                } catch (ParseException p) {
+
+                    error_lines.add((count + 1) + "行目の出版日は半角数字のYYYYMMDD形式で入力してください");
+                    isValid = true;
+                }
+                count += 1;
+                //                }
 
             }
 
             if (isValid) {
-                model.addAttribute("error_lines)", error_lines);
+                model.addAttribute("error_lines", error_lines);
                 return "bulkBook";
             }
             //isValidにはすでにfalseとtrueが入っているので、==falseなどは入れる必要性がない。
