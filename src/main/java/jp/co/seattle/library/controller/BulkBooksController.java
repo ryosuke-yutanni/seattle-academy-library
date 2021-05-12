@@ -46,6 +46,10 @@ public class BulkBooksController {
      * 
      * 
      */
+    /**
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/bulkBook", method = RequestMethod.GET) //value＝actionで指定したパラメータ
 
     //RequestParamでname属性を取得
@@ -53,15 +57,12 @@ public class BulkBooksController {
         return "bulkBook";
     }
 
-    /**
-     * 
-     * 書籍情報を一括登録する。
+    /**書籍情報を一括登録する。
+     * @param locale
      * @param s_file
-     *
-     *
+     * @param model
+     * @return
      */
-
-    //ファイルを読み込んだ時の処理（各要素のバリデーションチェック）
     @Transactional
     @RequestMapping(value = "/bulkBook2", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
     public String filecontents(Locale locale,
@@ -74,7 +75,7 @@ public class BulkBooksController {
 
         //ファイルを1行づつ読み込んでいる。
         List<String[]> lines = new ArrayList<String[]>();
-        List<String> error_lines = new ArrayList<String>();
+        List<String> errorLines = new ArrayList<String>();
         try {
             InputStream stream = s_file.getInputStream();
             Reader reader = new InputStreamReader(stream);
@@ -84,30 +85,27 @@ public class BulkBooksController {
 
             int count = 0;
             while ((line = buf.readLine()) != null) {
-                String[] bulkbookinfo = line.split(",", -1);//1行目を区切って分けているbulkBookinfo ,を基準に分けている -1で空白を一つの要素とする。
+                String[] bulkBookInfo = line.split(",", -1);//1行目を区切って分けているbulkBookInfo ,を基準に分けている -1で空白を一つの要素とする。
 
-                lines.add(bulkbookinfo);
-                //70行目にbulkinfo(ストリング型の配列を入れている。)
+                lines.add(bulkBookInfo);
 
                 //必須項目があるか
 
-                if (StringUtils.isNullOrEmpty(bulkbookinfo[0]) || StringUtils.isNullOrEmpty(bulkbookinfo[1])
-                        || StringUtils.isNullOrEmpty(bulkbookinfo[2])
-                        || StringUtils.isNullOrEmpty(bulkbookinfo[3])) {
+                if (StringUtils.isNullOrEmpty(bulkBookInfo[0]) || StringUtils.isNullOrEmpty(bulkBookInfo[1])
+                        || StringUtils.isNullOrEmpty(bulkBookInfo[2])
+                        || StringUtils.isNullOrEmpty(bulkBookInfo[3])) {
 
-                    error_lines.add((count + 1) + "行目の必須項目を入力してください");
+                    errorLines.add((count + 1) + "行目の必須項目を入力してください");
                     isValid = true; //エラーが起きた際はtrueにしてエラー表示、登録する前に一括登録画面に遷移する。
                     //バリデーションチェックで不正が起きた場合にエラー処理を行う
                 }
-
-
                 //文字数や形式はっているか？（バリデーションチェック）
                 //ISBN　if文を使用
 
-                boolean isValidIsbn = bulkbookinfo[4].matches("[0-9]{10}|[0-9]{13}");
+                boolean isValidIsbn = bulkBookInfo[4].matches("[0-9]{10}|[0-9]{13}");
 
                 if (!isValidIsbn) {
-                    error_lines.add((count + 1) + "行目のISBNの桁数または半角数字が正しくありません");
+                    errorLines.add((count + 1) + "行目のISBNの桁数または半角数字が正しくありません");
                     isValid = true;
                 }
                 //文字数や形式はっているか？（バリデーションチェック）
@@ -116,19 +114,16 @@ public class BulkBooksController {
                 try {
                     DateFormat df = new SimpleDateFormat("yyyyMMdd");
                     df.setLenient(false);
-                    df.parse(bulkbookinfo[3]);
+                    df.parse(bulkBookInfo[3]);
                 } catch (ParseException p) {
 
-                    error_lines.add((count + 1) + "行目の出版日は半角数字のYYYYMMDD形式で入力してください");
+                    errorLines.add((count + 1) + "行目の出版日は半角数字のYYYYMMDD形式で入力してください");
                     isValid = true;
                 }
                 count += 1;
-                //                }
-
             }
-
             if (isValid) {
-                model.addAttribute("error_lines", error_lines);
+                model.addAttribute("error_lines", errorLines);
                 return "bulkBook";
             }
             //isValidにはすでにfalseとtrueが入っているので、==falseなどは入れる必要性がない。
@@ -148,7 +143,7 @@ public class BulkBooksController {
             }
 
             model.addAttribute("resultMessage", "登録完了");
-            System.out.print(error_lines);
+            System.out.print(errorLines);
 
             //  詳細画面に遷移する
             return "bulkBook";

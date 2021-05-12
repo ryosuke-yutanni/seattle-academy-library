@@ -33,7 +33,6 @@
                     <p>「書籍名,著者名,出版社,出版日,ISBN」の形式で記載してください。</p>
                     <p>※サムネイル画像は一括登録できません。編集画面で一冊単位で登録してください。</p>
                 </div>
-                <%-- <div class="error_msg">${error_lines}</div> --%>
                 <c:forEach var="error" items="${error_lines}">
                     <div class="error">${error}</div>
                 </c:forEach>
