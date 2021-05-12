@@ -115,11 +115,12 @@ public class EditBooksController {
             }
         }
 
-        //必須項目
+        //必須項目　// model.addAttribute("bookDetailsInfo", booksService.getBookInfo(bookId));をバリデーションチェックの後に持ってくる。
         if (StringUtils.isNullOrEmpty(title) || StringUtils.isNullOrEmpty(author)
                 || StringUtils.isNullOrEmpty(publisher)
                 || StringUtils.isNullOrEmpty(publishDate)) {
             model.addAttribute("error", "必須項目を入力してください");
+            model.addAttribute("bookDetailsInfo", booksService.getBookInfo(bookId));
             return "editBook";
         }
 
@@ -129,12 +130,14 @@ public class EditBooksController {
             df.parse(publishDate);
         } catch (ParseException p) {
             model.addAttribute("error", "ISBNの桁数または半角数字が正しくありません<br>出版日は半角数字のYYYYMMDD形式で入力してください");
+            model.addAttribute("bookDetailsInfo", booksService.getBookInfo(bookId));
             return "editBook";
         }
         boolean isValidIsbn = isbn.matches("[0-9]{10}|[0-9]{13}");
 
         if (!isValidIsbn) {
             model.addAttribute("error", "ISBNの桁数または半角数字が正しくありません<br>出版日は半角数字のYYYYMMDD形式で入力してください");
+            model.addAttribute("bookDetailsInfo", booksService.getBookInfo(bookId));
             return "editBook";
         }
         // 書籍情報を編集する

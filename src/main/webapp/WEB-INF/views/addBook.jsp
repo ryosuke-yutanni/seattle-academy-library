@@ -37,7 +37,6 @@
         <div class="right">
                   
             <ul>
-                        
                 <li><a href="<%=request.getContextPath()%>/home" class="menu">Home</a></li>         
                 <li><a href="<%=request.getContextPath()%>/">ログアウト</a></li>       
             </ul>
@@ -58,9 +57,6 @@
                     <input type="file" accept="image/*" name="thumbnail" id="thumbnail">
                 </div>
                 <div class="content_right">
-                    <c:if test="${!empty error}">
-                            <div class="error">${error}</div>           
-                        </c:if>
                     <div>
                         <span>書籍名</span><span class="care care2">必須</span>
                         <c:if test="${!empty bookInfo}">
@@ -95,6 +91,9 @@
                         </c:if>
                         <c:if test="${empty bookInfo}">
                             <input type="text" name="publishDate">
+                            <c:if test="${!empty publishDateError}">
+                                <div class="error">${publishDateError}</div>
+                            </c:if>
                         </c:if>
                     </div>
                     <div>
@@ -104,6 +103,9 @@
                         </c:if>
                         <c:if test="${empty bookInfo}">
                             <input type="text" name="isbn">
+                            <c:if test="${!empty isbnError}">
+                                <div class="error">${isbnError}</div>
+                            </c:if>
                         </c:if>
                     </div>
                     <div>
