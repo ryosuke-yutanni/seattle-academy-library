@@ -42,13 +42,10 @@ public class BulkBooksController {
     private ThumbnailService thumbnailService;
 
     /**
-     * 入力された値をbulkBookに値を渡す。
-     * 
-     * 
-     */
-    /**
-     * @param model
-     * @return
+     *homeから遷移してくる。
+     *@param locale
+     *@param model
+     *@return
      */
     @RequestMapping(value = "/bulkBook", method = RequestMethod.GET) //value＝actionで指定したパラメータ
 
@@ -58,15 +55,15 @@ public class BulkBooksController {
     }
 
     /**書籍情報を一括登録する。
-     * @param locale
-     * @param s_file
-     * @param model
-     * @return
+     *@param locale
+     *@param sFile
+     *@param model
+     *@return
      */
     @Transactional
     @RequestMapping(value = "/bulkBook2", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
     public String filecontents(Locale locale,
-            @RequestParam("s_file") MultipartFile s_file,
+            @RequestParam("sFile") MultipartFile sFile,
             Model model) {
 
         String line = null;
@@ -77,7 +74,7 @@ public class BulkBooksController {
         List<String[]> lines = new ArrayList<String[]>();
         List<String> errorLines = new ArrayList<String>();
         try {
-            InputStream stream = s_file.getInputStream();
+            InputStream stream = sFile.getInputStream();
             Reader reader = new InputStreamReader(stream);
             BufferedReader buf = new BufferedReader(reader);
 

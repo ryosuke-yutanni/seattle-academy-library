@@ -37,7 +37,7 @@
                     <div class="error">${error}</div>
                 </c:forEach>
                 <div>
-                    <input type="file" accept=".csv" id="s_file" name="s_file">
+                    <input type="file" accept=".csv" id="sFile" name="sFile">
                 </div>
                 <div class="addBookBtn_box">
                     <button type="submit" id="add-btn" class="btn_bulkRegist">一括登録</button>
