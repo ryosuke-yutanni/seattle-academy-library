@@ -1,0 +1,21 @@
+main {
+	background-color: #008b8b;
+	height: 1800px;
+	text-align: center;
+}
+
+.heading h1 {
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: 30px;
+	color: #7fffd4;
+}
+
+.heading p {
+	font-size: 35px;
+	text-align: center;
+	margin-top: 50px;
+	color: #ff4500;
+	margin-bottom: 50px;
+}
+
