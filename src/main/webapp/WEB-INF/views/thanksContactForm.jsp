@@ -1,3 +1,4 @@
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 <%@ page contentType="text/html; charset=utf8"%>
@@ -16,13 +17,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/slick.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/slick-theme.css" />" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="resources/js/slick.min.js"></script>
-<script src="resources/js/main.js"></script>
-
 </head>
-
 <body class="wrapper">
     <header>
         <div class="left">
@@ -54,19 +49,17 @@
                     <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_rentBook">NO</button>
                 </form>
             </div>
-            <ul class="slider">
-                <li><img src="resources/img/kyowa.jpg"></li>
-                <li><img src="resources/img/kyowa.jpg"></li>
-                <li><img src="resources/img/kyowa.jpg"></li>
-                <li><img src="resources/img/kyowa.jpg"></li>
-            </ul>
+            <div class="slider">
+                <div><a href="https://www.youtube.com/watch?v=peWPFBtCjVI"><img src="resources/img/シアトルチャンネル.jpg"></a></div>
+                <div><a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル2.jpg"></a></div>
+                <div><a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル3.jpg"></a></div>
+                <div><a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル4.jpg"></a></div>
+                <div><a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル5.jpg"></a></div>
+            </div>
         </div>
     </main>
-<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="/resources/js/slick.min.js"></script>
-<script src="/SeattleLibrary/src/main/webapp/resources/js/slick.min.js"></script>
-<script src="/resources/js/main.js"></script>
-<script src="/SeattleLibrary/src/main/webapp/resources/js/main.js"></script> -->
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="resources/js/slick.min.js"></script>
+    <script src="resources/js/main.js"></script>
 </body>
 </html>

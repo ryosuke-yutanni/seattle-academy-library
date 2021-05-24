@@ -1,8 +1,6 @@
 
 $(function(){
 	
-
-
 $('.slider').slick({
   dots: true,
   autoplay: true,
@@ -14,4 +12,6 @@ $('.slider').slick({
   pauseOnHover: false
 });
 
+
 });
+

@@ -1,13 +1,18 @@
 main {
 	background-color: #008b8b;
-	height: 1800px;
-	text-align: center;
+	height: 1651px;
+	margin: auto;
+}
+
+.kyowapic img {
+	margin-left: 180px;
+	margin-top: 100px;
 }
 
 .heading h1 {
-	font-size: 50px;
+	font-size: 55px;
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	color: #7fffd4;
 }
 
@@ -19,3 +24,14 @@ main {
 	margin-bottom: 50px;
 }
 
+.slider {
+	margin-top: 100px;
+	text-align: center;
+	width: 1656px;
+	height: 400px;
+}
+
+.slider img {
+	width: 30%;
+	margin: auto;
+}

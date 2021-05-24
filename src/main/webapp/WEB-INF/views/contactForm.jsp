@@ -28,7 +28,9 @@
     <main>
         <div class="background">
             <h1>お問い合わせ</h1>
-            <a href="<%=request.getContextPath()%>/addBook" class="btn_add_book">書籍の追加</a> <a href="<%=request.getContextPath()%>/bulkBook" class="btn_bulk_book">一括登録</a> <a href="<%=request.getContextPath()%>/contactform" class="btn_bulk_book">お問い合わせ</a>
+            <a href="<%=request.getContextPath()%>/addBook" class="btn_add_book">書籍の追加</a> 
+            <a href="<%=request.getContextPath()%>/bulkBook" class="btn_bulk_book">一括登録</a>
+             <a href="<%=request.getContextPath()%>/contactform" class="btn_contact">お問い合わせ</a>
             <div class="Form">
                 <form method="post" action="contactformcontents">
                     <div class="Form-Item">
@@ -47,7 +49,7 @@
                         <p class="Form-Item-Label">
                             <span class="Form-Item-Label-Required">任意</span>電話番号
                         </p>
-                        <input type="text" class="Form-Item-Input" id="number" name="number" placeholder="例）000-0000-0000">
+                        <input type="text" class="Form-Item-Input" id="number" name="number" placeholder="例）000-0000-0000" pattern="\d{2,4}-?\d{3,4}-?\d{3,4}">
                     </div>
                     <div class="Form-Item">
                         <p class="Form-Item-Label">

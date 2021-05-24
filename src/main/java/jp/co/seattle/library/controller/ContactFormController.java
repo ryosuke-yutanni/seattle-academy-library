@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysql.jdbc.StringUtils;
-
 import jp.co.seattle.library.service.BooksService;
 
 /**
@@ -53,17 +51,6 @@ public class ContactFormController {
             Model model) {
         logger.info("Welcome createAccount! The client locale is {}.", locale);
 
-        //Eメールがメール形式であるかのバリデーションチェック
-        boolean isEmailVaild = email
-                .matches("^([a-zA-Z0-9])+([a-zA-Z0-9\\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\\._-]+)+$");
-        boolean isNumberVaild = number
-                .matches("^([a-zA-Z0-9])+([a-zA-Z0-9\\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\\._-]+)+$");
-
-        //必須項目
-        if (StringUtils.isNullOrEmpty(name) || StringUtils.isNullOrEmpty(email)
-                || StringUtils.isNullOrEmpty(contents)) {
-            return "contactform";
-        }
         //必須項目、形式が問題なければテーブルに入れる。
         booksService.contactform(name, email, number, whatContents, contents);
 
