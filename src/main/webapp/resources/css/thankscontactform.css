@@ -1,19 +1,35 @@
 main {
 	background-color: #008b8b;
-	height: 1651px;
-	margin: auto;
+
+	height: 1948px;
 }
+
+
+
 
 .kyowapic img {
 	margin-left: 180px;
 	margin-top: 100px;
 }
 
+
 .heading h1 {
 	font-size: 55px;
 	text-align: center;
-	margin-bottom: 20px;
+
+	margin-top: 100px;
 	color: #7fffd4;
+	font-family: 'Bangers', cursive;
+}
+
+.heading p {
+	font-size: 55px;
+	text-align: center;
+	margin-top: 135px;
+	color: #7fffd4;
+	margin-bottom: 100px;
+	font-family: 'Bangers', cursive;
+
 }
 
 .heading p {
@@ -22,6 +38,7 @@ main {
 	margin-top: 50px;
 	color: #ff4500;
 	margin-bottom: 50px;
+
 }
 
 .slider {
@@ -34,4 +51,69 @@ main {
 .slider img {
 	width: 30%;
 	margin: auto;
+
+	border-radius: 3%;
 }
+
+h2 {
+	font-size: 55px;
+	color: #7fffd4;
+	text-align: center;
+	margin-top: 110px;
+	font-family: 'Bangers', cursive;
+}
+
+.thanksform {
+	margin: 0;
+}
+
+/* 京和さん光らせる
+ */
+.kiran-img {
+	position    :relative;
+	overflow    :hidden;
+	margin-left: 180px;
+	margin-top: 100px;
+}
+.kiran {
+	height:100%;
+	width:30px;
+	position:absolute;
+	top:-180px;
+	left:0;
+	background-color: #fff;
+	opacity:0;
+	transform: rotate(45deg);
+	animation: reflection 2s ease-in-out infinite;
+	-webkit-transform: rotate(45deg);
+	-webkit-animation: reflection 2s ease-in-out infinite;
+	-moz-transform: rotate(45deg);
+	-moz-animation: reflection 2s ease-in-out infinite;
+	-ms-transform: rotate(45deg);
+	-ms-animation: reflection 2s ease-in-out infinite;
+	-o-transform: rotate(45deg);
+	-o-animation: reflection 2s ease-in-out infinite;
+}
+@keyframes reflection {
+	0% { transform: scale(0) rotate(45deg); opacity: 0; }
+	30% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+	31% { transform: scale(4) rotate(45deg); opacity: 1; }
+	100% { transform: scale(50) rotate(45deg); opacity: 0; }
+}
+@-webkit-keyframes reflection {
+	0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+	30% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+	31% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+	100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+@-moz-keyframes reflection {
+	0% { -moz-transform: scale(0) rotate(45deg); opacity: 0; }
+	30% { -moz-transform: scale(0) rotate(45deg); opacity: 0.5; }
+	31% { -moz-transform: scale(4) rotate(45deg); opacity: 1; }
+	100% { -moz-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+
+
+
+
