@@ -1,13 +1,22 @@
 main {
 	background-color: #008b8b;
+
 	height: 1948px;
 }
 
 
 
+
+.kyowapic img {
+	margin-left: 180px;
+	margin-top: 100px;
+}
+
+
 .heading h1 {
 	font-size: 55px;
 	text-align: center;
+
 	margin-top: 100px;
 	color: #7fffd4;
 	font-family: 'Bangers', cursive;
@@ -20,6 +29,16 @@ main {
 	color: #7fffd4;
 	margin-bottom: 100px;
 	font-family: 'Bangers', cursive;
+
+}
+
+.heading p {
+	font-size: 35px;
+	text-align: center;
+	margin-top: 50px;
+	color: #ff4500;
+	margin-bottom: 50px;
+
 }
 
 .slider {
@@ -32,6 +51,7 @@ main {
 .slider img {
 	width: 30%;
 	margin: auto;
+
 	border-radius: 3%;
 }
 
@@ -92,6 +112,7 @@ h2 {
 	31% { -moz-transform: scale(4) rotate(45deg); opacity: 1; }
 	100% { -moz-transform: scale(50) rotate(45deg); opacity: 0; }
 }
+
 
 
 
