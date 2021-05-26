@@ -1,3 +1,5 @@
+
+
 package jp.co.seattle.library.controller;
 
 import java.text.DateFormat;
@@ -76,6 +78,8 @@ public class AddBooksController {
         bookInfo.setDescription(description);
         bookInfo.setIsbn(isbn);
 
+        // バリデーションチェックNGだった場合、書籍追加画面に遷移
+
         // クライアントのファイルシステムにある元のファイル名を設定する
         String thumbnail = file.getOriginalFilename();
 
@@ -90,7 +94,7 @@ public class AddBooksController {
                 bookInfo.setThumbnailUrl(thumbnailUrl);
 
             } catch (Exception e) {
-
+                //異常値の処理
                 // 異常終了時の処理
                 logger.error("サムネイルアップロードでエラー発生", e);
                 model.addAttribute("bookDetailsInfo", bookInfo);
@@ -98,10 +102,10 @@ public class AddBooksController {
             }
         }
 
+
         //必須項目
         if (StringUtils.isNullOrEmpty(title) || StringUtils.isNullOrEmpty(author)
-                || StringUtils.isNullOrEmpty(publisher)
-                || StringUtils.isNullOrEmpty(publishDate)) {
+                || StringUtils.isNullOrEmpty(publisher)) {
             model.addAttribute("error", "必須項目を入力してください");
             return "addBook";
         }
@@ -111,15 +115,18 @@ public class AddBooksController {
             df.setLenient(false);
             df.parse(publishDate);
         } catch (ParseException p) {
-            model.addAttribute("error", "ISBNの桁数または半角数字が正しくありません<br>出版日は半角数字のYYYYMMDD形式で入力してください");
+            model.addAttribute("error", "出版日は半角数字のYYYYMMDD形式で入力してください");
             return "addBook";
         }
-        boolean isValidIsbn = isbn.matches("[0-9]{10}|[0-9]{13}");
+
+        //        ISBN
+        boolean isValidIsbn = isbn.matches("[0-9]{10}||[0-9]{13}");
 
         if (!isValidIsbn) {
-            model.addAttribute("error", "ISBNの桁数または半角数字が正しくありません<br>出版日は半角数字のYYYYMMDD形式で入力してください");
-            return "addbook";
+            model.addAttribute("error", "ISBNの桁数または半角数字が正しくありません");
+            return "addBook";
         }
+
         // 書籍情報を新規登録する
         booksService.registBook(bookInfo);
 

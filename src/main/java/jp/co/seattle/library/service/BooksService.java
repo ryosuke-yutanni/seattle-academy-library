@@ -106,4 +106,17 @@ public class BooksService {
         jdbcTemplate.update(sql);
     }
 
+    public void contactform(String name, String email, String number, String whatContents, String contents) {
+        String sql = "INSERT INTO contactform (CUSTOMER_NAME,EMAIL,number,WHAT_CONTENTS,CONTENTS,REG_DATE,UPD_DATE) VALUES ('"
+                + name + "','"
+                + email + "','"
+                + number + "','"
+                + whatContents + "','"
+                + contents + "',"
+                + "sysdate(),"
+                + "sysdate())";
+
+        jdbcTemplate.update(sql);
+    }
+
 }

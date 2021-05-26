@@ -191,7 +191,6 @@ button.btn_bulkRegist {
 }
 
 
-
 a:hover, button:hover {
 	opacity: 0.5;
 }
@@ -323,5 +322,3 @@ hr.border_add {
 .bulk_form .caution p {
 	color: #fa8072;
 }
-
-/* ここからcontactformの記述スタート */
