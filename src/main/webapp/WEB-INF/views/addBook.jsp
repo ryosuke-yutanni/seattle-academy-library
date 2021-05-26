@@ -57,64 +57,45 @@
                     <input type="file" accept="image/*" name="thumbnail" id="thumbnail">
                 </div>
                 <div class="content_right">
+                    <c:if test="${!empty error}">
+                        <div class="error">${error}</div>
+                    </c:if>
+                    
+                    
                     <div>
                         <span>書籍名</span><span class="care care2">必須</span>
-                        <c:if test="${!empty bookInfo}">
-                            <input type="text" name="title" value="${bookInfo.title}">
-                        </c:if>
                         <c:if test="${empty bookInfo}">
                             <input type="text" name="title" autocomplete="off">
                         </c:if>
                     </div>
                     <div>
                         <span>著者名</span><span class="care care2">必須</span>
-                        <c:if test="${!empty bookInfo}">
-                            <input type="text" name="author" value="${bookInfo.author}">
-                        </c:if>
                         <c:if test="${empty bookInfo}">
                             <input type="text" name="author" autocomplete="off">
                         </c:if>
                     </div>
                     <div>
                         <span>出版社</span><span class="care care2">必須</span>
-                        <c:if test="${!empty bookInfo}">
-                            <input type="text" name="publisher" value="${bookInfo.publisher}">
-                        </c:if>
                         <c:if test="${empty bookInfo}">
-                            <input type="text" name="publisher">
+                            <input type="text" name="publisher" autocomplete="off">
                         </c:if>
                     </div>
                     <div>
                         <span>出版日</span><span class="care care2">必須</span>
-                        <c:if test="${!empty bookInfo}">
-                            <input type="text" name="publishDate" value="${bookInfo.publishDate}">
-                        </c:if>
-                        <c:if test="${empty bookInfo}">
-                            <input type="text" name="publishDate">
-                            <c:if test="${!empty publishDateError}">
-                                <div class="error">${publishDateError}</div>
-                            </c:if>
+                         <c:if test="${empty bookInfo}">
+                            <input type="text" name="publishDate" autocomplete="off">
                         </c:if>
                     </div>
                     <div>
                         <span>ISBN</span><span class="care care1">任意</span>
-                        <c:if test="${!empty bookInfo}">
-                            <input type="text" name="isbn" value="${bookInfo.isbn}">
-                        </c:if>
-                        <c:if test="${empty bookInfo}">
-                            <input type="text" name="isbn">
-                            <c:if test="${!empty isbnError}">
-                                <div class="error">${isbnError}</div>
-                            </c:if>
+                         <c:if test="${empty bookInfo}">
+                            <input type="text" name="isbn" autocomplete="off">
                         </c:if>
                     </div>
                     <div>
                         <span>説明文</span><span class="care care1">任意</span>
-                        <c:if test="${!empty bookInfo}">
-                            <input type="text" name="description" value="${bookInfo.description}">
-                        </c:if>
-                        <c:if test="${empty bookInfo}">
-                            <input type="text" name="description">
+                         <c:if test="${empty bookInfo}">
+                            <input type="text" name="description" autocomplete="off">
                         </c:if>
                     </div>
                     <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
@@ -124,7 +105,6 @@
                 <button type="submit" id="add-btn" class="btn_addBook">登録</button>
             </div>
         </form>
-        </div>
     </main>
 </body>
 </html>

@@ -33,80 +33,55 @@
         </div>
     </header>
     <main class="thanksform">
-        <div class="main-box abcd">
-             
-            <div class="heading">
-                <div class="delete-left-border">
-                    <h1>Thanks for your comments!</h1>
-                </div>
-                <!--    <div class="kyowapic">
+         
+        <div class="heading">
+            <div class="delete-left-border">
+                <h1>Thanks for your comments!</h1>
+            </div>
+        </div>
+        <!--    <div class="kyowapic">
                     <img src="resources/img/kyowa.jpg" alt="" title="キメ顔">
                 </div> -->
-                <div class="kiran-img">
-                    <img src="resources/img/kyowa.jpg" alt="" title="キメ顔">
-                    <div class="kiran"></div>
+        <div class="kiran-img">
+            <img src="resources/img/kyowa.jpg" alt="" title="キメ顔">
+            <div class="kiran"></div>
+        </div>
+        <div id="anyquestion">
+            <p>Any other questions?</p>
+        </div>
+        <div class="edtDelBookBtn_box">
+            <form method="get" action="recontact">
+                <a href="<%=request.getContextPath()%>/contactform" class="btn btn-flat"><span>YES</span></a>
+            </form>
+            <form method="get" action="home">
+                <a href="<%=request.getContextPath()%>/home" class="btn btn-flat"><span>NO</span></a>
+            </form>
+        </div>
+        <div>
+            <h2 id="sign">Please follow us！</h2>
+        </div>
+        <div class="slider_wrapper">
+            <div class="slider">
+                <div>
+                    <a href="https://www.youtube.com/watch?v=peWPFBtCjVI"><img src="resources/img/シアトルチャンネル.jpg"></a>
                 </div>
-                <p>Any other questions?</p>
-                <main>
-                    <div class="main-box abcd">
-                         
-                        <div class="heading">
-                            <h1>お問い合わせ頂き誠にありがとうございます！</h1>
-                            <div class="kyowapic">
-                                <img src="resources/img/kyowa.jpg" alt="" title="キメ顔">
-                            </div>
-                            <p>他にもお問い合わせはございますか？</p>
-                        </div>
-                        <div class="edtDelBookBtn_box">
-                            <form method="get" action="recontact">
-                                <button type="submit" value="${bookDetailsInfo.bookId}" name="" class="btn_returnBook">YES</button>
-                            </form>
-                            <form method="get" action="home">
-                                <button type="submit" value="${bookDetailsInfo.bookId}" name="bookId" class="btn_rentBook">NO</button>
-                            </form>
-                        </div>
-                        <div>
-                            <h2 id="sign">Please follow us！</h2>
-                        </div>
-                        <div class="slider_wrapper">
-                            <div class="slider">
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=peWPFBtCjVI"><img src="resources/img/シアトルチャンネル.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル2.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル3.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル4.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル5.jpg"></a>
-                                </div>
-                            </div>
-                            <div class="slider">
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=peWPFBtCjVI"><img src="resources/img/シアトルチャンネル.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル2.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル3.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル4.jpg"></a>
-                                </div>
-                                <div>
-                                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル5.jpg"></a>
-                                </div>
-                            </div>
-                        </div>
-                </main>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                <script src="resources/js/slick.min.js"></script>
-                <script src="resources/js/main.js"></script>
+                <div>
+                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル2.jpg"></a>
+                </div>
+                <div>
+                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル3.jpg"></a>
+                </div>
+                <div>
+                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル4.jpg"></a>
+                </div>
+                <div>
+                    <a href="https://www.youtube.com/watch?v=tjNBr8pGxQY"><img src="resources/img/シアトルチャンネル5.jpg"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="resources/js/slick.min.js"></script>
+    <script src="resources/js/main.js"></script>
 </body>
 </html>

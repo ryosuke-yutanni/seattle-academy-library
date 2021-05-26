@@ -1,44 +1,28 @@
 main {
 	background-color: #008b8b;
-
-	height: 1948px;
+	    height: 2117px;
 }
-
-
-
 
 .kyowapic img {
 	margin-left: 180px;
 	margin-top: 100px;
 }
 
-
 .heading h1 {
 	font-size: 55px;
 	text-align: center;
-
 	margin-top: 100px;
 	color: #7fffd4;
 	font-family: 'Bangers', cursive;
 }
 
-.heading p {
+#anyquestion p {
 	font-size: 55px;
 	text-align: center;
 	margin-top: 135px;
 	color: #7fffd4;
 	margin-bottom: 100px;
 	font-family: 'Bangers', cursive;
-
-}
-
-.heading p {
-	font-size: 35px;
-	text-align: center;
-	margin-top: 50px;
-	color: #ff4500;
-	margin-bottom: 50px;
-
 }
 
 .slider {
@@ -51,7 +35,6 @@ main {
 .slider img {
 	width: 30%;
 	margin: auto;
-
 	border-radius: 3%;
 }
 
@@ -67,13 +50,117 @@ h2 {
 	margin: 0;
 }
 
+/* ボタンの色つける */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+  	font-family: 'Bangers', cursive;
+  
+}
+
+a.btn-flat {
+  overflow: hidden;
+
+  padding: 1.5rem 6rem;
+
+  color: #fff;
+  border-radius: 0;
+  background: #000;
+  margin:50px;
+  height: 130px;
+  width: 350px;
+ 
+  
+}
+
+a.btn-flat span {
+  position: relative;
+}
+
+a.btn-flat:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 150%;
+  height: 500%;
+
+  content: "";
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+
+  background: #00b7ee;
+}
+
+a.btn-flat:hover:before {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+
+.btn btn-flat span{
+    border: red 2px solid;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* 京和さん光らせる
  */
 .kiran-img {
-	position    :relative;
-	overflow    :hidden;
+	position: relative;
+	overflow: hidden;
 	margin-left: 180px;
 	margin-top: 100px;
+}
+.kiran-img {
+	position    :relative;
+	overflow    :hidden;
 }
 .kiran {
 	height:100%;
@@ -112,8 +199,3 @@ h2 {
 	31% { -moz-transform: scale(4) rotate(45deg); opacity: 1; }
 	100% { -moz-transform: scale(50) rotate(45deg); opacity: 0; }
 }
-
-
-
-
-

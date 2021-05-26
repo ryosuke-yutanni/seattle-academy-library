@@ -12,7 +12,6 @@
 <link href="<c:url value="/resources/css/home.css" />" rel="stylesheet" type="text/css">
 <link href="<c:url value="/resources/css/contactform.css" />" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Bangers rel="stylesheet">
-
 </head>
 <body class="wrapper">
     <header>
@@ -27,11 +26,10 @@
             </ul>
         </div>
     </header>
-
     <main class="ryochan">
         <div class="background">
             <div class="list-button">
-                <a href="<%=request.getContextPath()%>/addBook" class="btn_add_book"><span>書籍の追加</span></a> <a href="<%=request.getContextPath()%>/bulkBook" class="btn_bulk_book">一括登録</a> <a href="<%=request.getContextPath()%>/contactform" class="btn_contact">お問い合わせ</a>
+                <a href="<%=request.getContextPath()%>/addBook" class="btn_add_book"><span>書籍の追加</span></a> <a href="<%=request.getContextPath()%>/bulkBook" class="btn_bulk_book">一括登録</a>
                 <div class="delete-left-border">
                     <h1>CONTACTFORM</h1>
                 </div>
@@ -39,10 +37,6 @@
             <div class="Form">
                 <form method="post" action="contactformcontents">
                     <div class="Form-Item-head">
-
-  
-        
-
                         <p class="Form-Item-Label">
                             <span class="Form-Item-Label-Required">必須</span>お名前
                         </p>
@@ -65,11 +59,7 @@
                             <span class="Form-Item-Label-Required">必須</span>お問い合わせ種別
                         </p>
                         <select class="pull-down" name="whatContents">
-
                             <option hidden>お問い合わせ内容を洗濯してください</option>
-
-                     
-
                             <option value="追加ができない">追加ができない</option>
                             <option value="編集ができない">編集ができない</option>
                             <option value="編集ができない">一括登録ができない</option>
