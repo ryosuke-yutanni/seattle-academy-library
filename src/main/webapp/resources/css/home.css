@@ -145,8 +145,6 @@ img.book_img {
 	font-size: 12px;
 }
 
-
-
 a.btn_add_book, a.btn_bulk_book, button.btn_addBook, button.btn_editBook,
 	button.btn_deleteBook, button.btn_rentBook, button.btn_returnBook,
 	button.btn_bulkRegist, a.btn_contact {
@@ -191,7 +189,6 @@ button.btn_returnBook {
 button.btn_bulkRegist {
 	background-color: #FF9966;
 }
-
 
 
 a:hover, button:hover {
@@ -325,5 +322,3 @@ hr.border_add {
 .bulk_form .caution p {
 	color: #fa8072;
 }
-
-/* ここからcontactformの記述スタート */

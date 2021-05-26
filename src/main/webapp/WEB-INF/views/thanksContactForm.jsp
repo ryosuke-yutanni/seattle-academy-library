@@ -39,9 +39,6 @@
                 <h1>Thanks for your comments!</h1>
             </div>
         </div>
-        <!--    <div class="kyowapic">
-                    <img src="resources/img/kyowa.jpg" alt="" title="キメ顔">
-                </div> -->
         <div class="kiran-img">
             <img src="resources/img/kyowa.jpg" alt="" title="キメ顔">
             <div class="kiran"></div>
